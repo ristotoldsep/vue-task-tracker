@@ -12,7 +12,9 @@
         },
         methods: {
             onClick() {
-                console.log("CLICK")
+                // console.log("CLICK")
+                //Emit this method upwards to use in Header.vue and then in App.vue
+                this.$emit('toggle-add-task')
             }
         }
     }

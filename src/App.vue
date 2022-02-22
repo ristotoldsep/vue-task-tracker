@@ -1,8 +1,15 @@
 <template>
 <div class="container">
   
-  <Header title="Task Tracker" />
-  <AddTask @add-task="addTask" />
+  <Header 
+    @toggle-add-task="toggleAddTask" 
+    title="Task Tracker" 
+    :showAddTask="showAddTask"
+  />
+  <!-- Conditionals in vue! can also use v-show="showAddTask", checks the value below -->
+  <div v-if="showAddTask">
+    <AddTask @add-task="addTask" />
+  </div>
   <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   
 </div>
@@ -24,10 +31,15 @@ export default {
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      showAddTask: false,
     }
   },
   methods: {
+    toggleAddTask() {
+      //Negate the default value
+      this.showAddTask = !this.showAddTask
+    },
     addTask(task) {
       this.tasks = [...this.tasks, task] //First spread the current array and add to it!
     },
