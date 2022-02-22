@@ -2,7 +2,7 @@
 <div class="container">
   
   <Header title="Task Tracker" />
-  <Tasks @delete-task="deleteTask" :tasks="tasks" />
+  <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
   
 </div>
   
@@ -30,7 +30,12 @@ export default {
       if (confirm('Are you sure?')) {
         this.tasks = this.tasks.filter((task) => task.id !== id) //We want everything back except the id that was deleted (clicked)
       }
-    }
+    },
+    toggleReminder(id) {
+      // console.log(id)
+      //on click negate the task.reminder
+      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+    },
   },
   created() {
     this.tasks = [

@@ -1,7 +1,7 @@
 <template>
     <!-- Vue loops need identical key -->
     <div :key="task.id" v-for="task in tasks">
-        <Task v-on:delete-task="$emit('delete-task', task.id)" :task="task" />
+        <Task v-on:toggle-reminder="$emit('toggle-reminder', task.id)" v-on:delete-task="$emit('delete-task', task.id)" :task="task" />
     </div>
 </template>
 
@@ -16,6 +16,6 @@
         components: {
             Task,
         },
-        emits: ['delete-task'] //PASSING IT UP THE FILE ARCHITECTURE TO APP.VUE
+        emits: ['delete-task', 'toggle-reminder'] //PASSING IT UP THE FILE ARCHITECTURE TO APP.VUE
     }
 </script>

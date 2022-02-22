@@ -1,6 +1,7 @@
 <template>
-    <div :class="[task.reminder ? 'reminder' : '', 'task']">
+    <div @click="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'task']">
         <h3>{{ task.text }}
+            <!-- this is another method to emit method (need to declare it below) -->
             <i @click="onDelete(task.id)" class="fas fa-times"></i>
         </h3>
         <p>{{ task.day }}</p>
