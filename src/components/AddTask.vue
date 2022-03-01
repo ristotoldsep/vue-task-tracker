@@ -44,7 +44,7 @@
                 }
                 //If upper code passes
                 const newTask = {
-                    id: Math.floor(Math.random() * 100000),
+                    // id: Math.floor(Math.random() * 100000), //This gets added by json server automatically now
                     text: this.text,
                     day: this.day,
                     reminder: this.reminder,
