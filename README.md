@@ -1,8 +1,8 @@
 # vue-task-tracker
 
 ## To run project
-npm run serve
-npm run backend (for json-server)
+* npm run serve
+* npm run backend (for json-server)
 
 
 ## Project setup
