@@ -3,7 +3,8 @@
 
         <h1>{{ title }}</h1>
 
-        <Button 
+        <!-- v-show conditional to show this button only on the homepage, the logic is below in "computed:" -->
+        <Button v-show="homePage" 
             @toggle-add-task="$emit('toggle-add-task')" 
             :text="showAddTask ? 'Close' : 'Add Task'" 
             :color="showAddTask ? 'red' : 'green'"
@@ -24,6 +25,16 @@
         },
         components: {
             Button
+        },
+        computed: {
+            homePage() {
+                if(this.$route.path === '/') {
+                    return true
+                }
+                else {
+                    return false
+                }
+            }
         }
     }
 </script>
